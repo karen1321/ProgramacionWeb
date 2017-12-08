@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HMO-{{titulo}}</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/scrolling-nav.css" %}">
+
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Se indexa el menu desde otro archivo HTML -->
+    {% include "menu.html" %}
+    {% block contenido %}
+    
+    {% endblock contenido %}
+
+    
+
+    <script src="{% static "jquery/jquery.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "js/scrolling-nav.js" %}"></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OML - Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/scrolling-nav.css" %}">
+</head>
+<body>
+        <div class="container">
+                <div class="login-container">
+                        <div id="output"></div>
+                        <div class="avatar"></div>
+                        <div class="form-box">
+                            <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
+                                <input name="username" autofocus required id="id_username" type="text" placeholder="jsmith@example.org">
+                                <input type="password" name="password" required id="id_password" placeholder="●●●●●●●">
+                                <button class="btn btn-info btn-block login" >Login</button>
+                                <a class="btn btn-info" href="{%url "register"%}">Registrarse</a>
+                                <a href="{% url "home" %}" class="btn btn-info">Regresar</a>
+                                    {% if form.errors %}
+                                        <a>Tu usuario o contraseña deben coinsidir.</a>
+                                    {% endif %}
+                                    <input type="hidden" name="next" value="{% url 'home' %}" />
+    
+                            </form>
+                            
+                        </div>
+                    </div>
+                    
+            </div>
+            <script src="{% static "jquery/jquery.min.js" %}"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% include "base.html" %}
+
+{% block titulopagina %}
+  Alta
+{% endblock titulopagina %}
+{% block contenido %}
+<header class="bg-primary text-white">
+  <div class="container text-center">
+    <h1>Borrar pacientes</h1>
+    <p class="lead">Borrar a un paciente</p>
+  </div>
+</header>
+
+<section id="services" class="bg-light">
+      <div class="container">
+              <div class="row">
+                <div class="col-lg-8 mx-auto">
+                  <h1>Confirmar borrado del paciente {{object.Paciente}}</h1>
+                   
+                  <form action = "" method = "post">{% csrf_token %}
+                    <p>Estas seguro que quieres eliminar "{{object.Paciente}}" ?</p>
+                    <input type="submit" name="" value="Confirmar">
+                  </form>
+                </form> 
+              </div>  
+                </div>
+              </div>
+            </div>
+ 
+</section>
+
+ <!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+{% endblock contenido %}

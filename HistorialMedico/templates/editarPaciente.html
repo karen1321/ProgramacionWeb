@@ -1,0 +1,53 @@
+{% include "base.html" %}
+
+{% block titulopagina %}
+  Alta
+{% endblock titulopagina %}
+{% block contenido %}
+<header class="bg-primary text-white">
+  <div class="container text-center">
+    <h1>Editar pacientes</h1>
+    <p class="lead">Editar a un paciente</p>
+  </div>
+</header>
+
+<section id="services" class="bg-light">
+      <div class="container">
+              <div class="row">
+                <div class="col-lg-8 mx-auto">
+                  <h1>Editar Pacientes</h1>
+                   
+              <form class="form"  method="POST" action="{% if action_url %}{{ action_url }}{% endif %}" >
+                
+                      {% csrf_token %}
+                      <!-- <label for="id_content">Content:</label></br> -->
+                
+                      <div class="control">
+                        <!-- Que es un widget y como lo uso? Tarea -->
+                          <!-- <textarea class="textarea"  name="content" required="" id="id_content" maxlength="140" placeholder="Tweet Please"></textarea> -->
+                          {{form.as_p}}
+                          <input class="button is-primary is-block is-alt is-large" type="submit" name="" value="Actualizar">
+                      </div>
+                
+                
+                      <!-- {{form.as_p}} -->
+                
+                
+                
+                </form> 
+              </div>  
+                </div>
+              </div>
+            </div>
+ 
+</section>
+
+ <!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+{% endblock contenido %}
