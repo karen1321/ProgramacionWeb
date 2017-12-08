@@ -31,5 +31,5 @@ urlpatterns = [
     url(r'^editar/(?P<pk>\d+)/', PacienteUpdateView.as_view(), name="edit"),
     url(r'^borrar/(?P<pk>\d+)/',PacienteDeleteView.as_view(),name="BorrarElemento"),
     url(r'^accounts/register/$', UserRegisterView.as_view(), name='register'),
-
+    url(r'^pacientes/$', views.pacientes, name='paciente_view'),
 ]

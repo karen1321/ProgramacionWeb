@@ -2,7 +2,7 @@ from django.db.models import Q
 from rest_framework import generics
 from rest_framework import permissions
 
-from  mi_aplicacicion.models import Tweet
+from  HitorialMedico.models import pacientes
 from .pagination import StandardResultPagination
 from .serializers import TweetModelSerializer
 
@@ -19,7 +19,7 @@ class TweetListAPIView(generics.ListAPIView):
     pagination_class = StandardResultPagination
 
     def get_queryset(self, *args, **kwargs):
-        qs = Tweet.objects.all().order_by("-created")
+        qs = pacientes.objects.all().order_by("-created")
         query = self.request.GET.get("q", None)
         if query is not None:
             qs = qs.filter(

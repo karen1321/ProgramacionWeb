@@ -10,6 +10,8 @@ from django.shortcuts import render
 from .forms import PacientesModelForm
 from .models import pacientes 
 from .mixin import FormUserNeededMixin
+from django.core import serializers
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -65,3 +67,12 @@ class PacienteDeleteView(LoginRequiredMixin,DeleteView):
 	model = pacientes
 	template_name = "borrarPaciente.html"
 	success_url = "/lista/"
+
+
+
+def pacientes(request):  # En lugar de json se puede poner xml
+    data = serializers.serialize('json', pacientes.objects.all())  # Se puede poner el filtro que se quiera
+    return HttpResponse(data, content_type='application/json')
+
+
+
